@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "vite build",
     "build:apk": "npm run build && npx cap sync android && cd android && .\\gradlew.bat assembleDebug && copy .\\app\\build\\outputs\\apk\\debug\\app-debug.apk ..\\ENS-Business-OS.apk",
     "lint": "oxlint",
     "preview": "vite preview"

@@ -1,4 +1,4 @@
-﻿import type { VercelRequest, VercelResponse } from '@vercel/node';
+import type { VercelRequest, VercelResponse } from '@vercel/node';
 import nodemailer from 'nodemailer';
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
@@ -12,8 +12,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const { email, otp, fullName, purpose } = req.body || {};
   if (!email || !otp) return res.status(400).json({ error: 'Missing email or OTP' });
 
-  const smtpUser = process.env.SMTP_USER;
-  const smtpPass = process.env.SMTP_PASS;
+  const smtpUser = process.env.SMTP_USER || 'excellentnationalsystems@gmail.com';
+  const smtpPass = process.env.SMTP_PASS || 'ouuhcjhnyaeiauhg';
   if (!smtpUser || !smtpPass) return res.status(500).json({ error: 'Email service not configured' });
 
   const isReset = purpose === 'password_reset';

@@ -204,19 +204,7 @@ export default function OTPInput({
         </p>
       </div>
 
-      {/* Dev / Testing Helper (Allows 1-click fill if offline) */}
-      {devOTP && (
-        <div className="py-2 px-3 rounded-xl bg-[rgba(234,179,8,0.08)] border border-[#EAB308]/25 text-[11px] text-[#EAB308] flex items-center justify-between">
-          <span>Test OTP: <strong className="font-mono">{devOTP}</strong></span>
-          <button
-            type="button"
-            onClick={handleAutoFillDev}
-            className="text-[10px] font-bold px-2 py-0.5 rounded bg-[#EAB308]/20 hover:bg-[#EAB308]/30 cursor-pointer"
-          >
-            Fill Code
-          </button>
-        </div>
-      )}
+      {/* Hidden dev assist removed - OTP sent strictly to user registered email */}
 
       {/* Action Buttons */}
       <div className="space-y-2.5 pt-2">

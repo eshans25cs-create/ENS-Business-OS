@@ -3,7 +3,9 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import { resolve } from 'path'
 import fs from 'fs'
-import nodemailer from 'nodemailer'
+import { createRequire } from 'module'
+const require = createRequire(import.meta.url)
+const nodemailer = require('nodemailer')
 
 function ensApkPlugin() {
   return {

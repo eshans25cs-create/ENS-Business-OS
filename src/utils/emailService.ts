@@ -24,7 +24,10 @@ export async function sendOtpEmail(
       (window as any).Capacitor?.isNativePlatform?.()
     );
 
-    const baseUrl = isNative ? 'https://photographs-ones-city-submit.trycloudflare.com' : '';
+    // Use Vercel permanent URL for native app; empty string = relative URL for web
+    const VERCEL_URL = 'https://ens-business-os.vercel.app';
+    const baseUrl = isNative ? VERCEL_URL : '';
+
 
     const response = await fetch(`${baseUrl}/api/send-otp`, {
       method: 'POST',

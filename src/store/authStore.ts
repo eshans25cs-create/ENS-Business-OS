@@ -149,6 +149,14 @@ export const useAuthStore = create<AuthStore>()(persist(
       
       // Dispatch real email to user's inbox
       const emailRes = await sendOtpEmail(data.email, otp, data.fullName);
+      if (!emailRes.success) {
+        set({ 
+          authStatus: 'error', 
+          authError: emailRes.error || 'Failed to dispatch verification code to your email. Please try again.',
+          lastEmailResult: emailRes 
+        });
+        return { success: false, error: emailRes.error || 'Failed to send OTP to email' };
+      }
       
       set({ 
         registerData: data, 
@@ -345,6 +353,14 @@ export const useAuthStore = create<AuthStore>()(persist(
       
       // Dispatch real email to user's registered inbox
       const emailRes = await sendOtpEmail(normalizedEmail, otp, user.fullName, 'password_reset');
+      if (!emailRes.success) {
+        set({
+          authStatus: 'error',
+          authError: emailRes.error || 'Failed to dispatch password reset code. Please check your network and try again.',
+          lastEmailResult: emailRes
+        });
+        return { success: false, error: emailRes.error || 'Failed to send reset code' };
+      }
       
       set({ 
         pendingEmail: normalizedEmail, 

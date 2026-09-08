@@ -185,7 +185,10 @@ export default function ForgotPasswordPage() {
                       onResend={async () => { await requestPasswordReset(email); }}
                       onChangeEmail={() => setStep('email')}
                       isLoading={isLoading}
-                      error={error}
+                      error={error || (useAuthStore.getState().lastEmailResult?.success === false ? (useAuthStore.getState().lastEmailResult?.error ?? null) : null)}
+                      devOTP={lastOTP}
+                      previewUrl={useAuthStore.getState().lastEmailResult?.previewUrl}
+                      isRealSmtp={useAuthStore.getState().lastEmailResult?.isRealSmtp}
                     />
                   </motion.div>
                 )}

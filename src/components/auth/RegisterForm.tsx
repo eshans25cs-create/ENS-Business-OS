@@ -257,7 +257,8 @@ export default function RegisterForm() {
                 onResend={handleOTPResend}
                 onChangeEmail={() => { setStep('details'); setError(null); }}
                 isLoading={isLoading}
-                error={error}
+                error={error || (authStore.lastEmailResult?.success === false ? (authStore.lastEmailResult?.error ?? null) : null)}
+                devOTP={authStore.lastOTP}
                 previewUrl={authStore.lastEmailResult?.previewUrl}
                 isRealSmtp={authStore.lastEmailResult?.isRealSmtp}
               />

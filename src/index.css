@@ -1,0 +1,162 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-ens-navy: #030B1A;
+  --color-ens-dark: #060F20;
+  --color-ens-blue: #0A84FF;
+  --color-ens-blue-glow: #3BA0FF;
+  --color-ens-gold: #FFD700;
+  --color-ens-emerald: #00C896;
+  --color-ens-red: #FF3B5C;
+  --color-ens-text: #F0F4FF;
+  --color-ens-muted: #6B7FA3;
+}
+
+:root {
+  --ens-navy: #030B1A;
+  --ens-dark: #060F20;
+  --ens-blue: #0A84FF;
+  --ens-blue-glow: #3BA0FF;
+  --ens-gold: #FFD700;
+  --ens-emerald: #00C896;
+  --ens-red: #FF3B5C;
+  --ens-text: #F0F4FF;
+  --ens-muted: #6B7FA3;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: var(--ens-navy);
+  color: var(--ens-text);
+  margin: 0;
+  padding: 0;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--ens-navy);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--ens-muted);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ens-blue);
+}
+
+/* Selection */
+::selection {
+  background: var(--ens-blue);
+  color: var(--ens-text);
+}
+
+/* Custom Classes */
+.glass-card {
+  background: rgba(10, 20, 48, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+}
+
+.ens-glow {
+  box-shadow: 0 0 30px rgba(10, 132, 255, 0.3);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--ens-blue), var(--ens-blue-glow));
+  color: var(--ens-text);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  border-radius: 8px;
+  padding: 10px 20px;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(10, 132, 255, 0.4);
+}
+
+.btn-ghost {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--ens-text);
+  border-radius: 8px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.input-ens {
+  background: rgba(10, 20, 48, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--ens-text);
+  border-radius: 12px;
+  padding: 12px 16px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.input-ens:focus {
+  border-color: var(--ens-blue);
+  box-shadow: 0 0 10px rgba(10, 132, 255, 0.2);
+}
+
+/* Keyframes */
+@keyframes gridMove {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(50px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+@keyframes ripple {
+  0% { transform: scale(0.8); opacity: 1; }
+  100% { transform: scale(2); opacity: 0; }
+}
+
+@keyframes scanLine {
+  0% { top: 0; }
+  100% { top: 100%; }
+}
+
+@keyframes hologram {
+  0% { opacity: 0.5; transform: translateY(0); }
+  50% { opacity: 0.8; transform: translateY(-5px); }
+  100% { opacity: 0.5; transform: translateY(0); }
+}
+
+@keyframes counterUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Print Styles */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .glass-card {
+    border: 1px solid #ccc;
+    background: white;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}

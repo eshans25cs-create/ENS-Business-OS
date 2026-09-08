@@ -1,0 +1,14 @@
+{
+   appId: com.ens.business,
+  appName: ENS Business OS,
+  webDir: public,
+  server: {
+    url: https://gilbert-qualify-summit-installation.trycloudflare.com,
+    cleartext: true,
+    androidScheme: https
+  },
+  android: {
+    allowMixedContent: true,
+    backgroundColor: #030B1A
+  }
+}

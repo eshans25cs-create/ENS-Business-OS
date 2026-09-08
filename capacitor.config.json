@@ -1,0 +1,12 @@
+{
+  "appId": "com.ens.business",
+  "appName": "ENS Business OS",
+  "webDir": "dist",
+  "server": {
+    "androidScheme": "https"
+  },
+  "android": {
+    "allowMixedContent": true,
+    "backgroundColor": "#030B1A"
+  }
+}
